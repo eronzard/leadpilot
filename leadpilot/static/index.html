@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeadPilot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">◆</span>
+    <div>
+      <h1>LeadPilot</h1>
+      <p class="muted">Inbound lead automation · intake → qualify → route → reply</p>
+    </div>
+  </div>
+  <div id="health" class="health muted">connecting…</div>
+</header>
+
+<main>
+  <section aria-labelledby="ba-title">
+    <div class="section-head">
+      <h2 id="ba-title">Before vs after</h2>
+      <p class="muted small" id="ba-note"></p>
+    </div>
+    <div class="cards" id="before-after"></div>
+    <div class="cards secondary" id="ops"></div>
+  </section>
+
+  <section class="panel">
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="review" class="active">Review queue <span class="count" id="count-review">0</span></button>
+      <button role="tab" data-tab="leads">All leads</button>
+      <button role="tab" data-tab="crm">CRM</button>
+      <button role="tab" data-tab="outbox">Outbox</button>
+      <button role="tab" data-tab="alerts">Notifications</button>
+      <button role="tab" data-tab="dead">Dead letter <span class="count danger" id="count-dead">0</span></button>
+      <button role="tab" data-tab="submit">+ Send test lead</button>
+    </nav>
+    <div id="tab-body"></div>
+  </section>
+</main>
+
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-inner">
+    <button class="close" id="drawer-close" aria-label="Close">×</button>
+    <div id="drawer-body"></div>
+  </div>
+</aside>
+
+<footer class="muted small">
+  LeadPilot · <a href="/docs">API docs</a> · <a href="/healthz">health</a>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

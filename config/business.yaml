@@ -1,0 +1,54 @@
+# Business profile that drives qualification, routing and reply drafting.
+# Swap this file to point LeadPilot at a different business; no code changes needed.
+
+business:
+  name: Northwind Ops Studio            # fictional automation consultancy used for the demo
+  description: >
+    A small consultancy that builds workflow automations, AI support agents and
+    CRM/data integrations for small and mid-sized businesses.
+  sender_name: Sam from Northwind Ops
+  booking_link: https://cal.example.com/northwind/intro-call
+  support_email: support@northwind.example
+
+services:
+  - workflow_automation      # Zapier / Make / n8n flows
+  - ai_support_agent         # chatbots, ticket triage
+  - crm_integration          # HubSpot / Salesforce sync, lead routing
+  - data_pipeline            # reporting, dashboards, ETL
+  - document_processing      # invoices, intake forms, OCR
+
+ideal_customer:
+  min_budget_usd: 3000
+  company_sizes: ["11-50", "51-200", "201-1000"]
+  good_industries: [dental, legal, real_estate, ecommerce, logistics, healthcare, saas, agency, accounting]
+  hot_signals:
+    - stated budget at or above the minimum
+    - wants to start within ~30 days
+    - sender is an owner, founder, director or head of a function
+    - describes a concrete, repetitive manual process
+  disqualifiers:
+    - job seekers or applicants
+    - vendors, SEO agencies or marketers pitching their own services
+    - students or homework requests
+    - requests for free work only
+    - spam, crypto, adult or link-farm content
+
+routing:
+  hot_threshold: 75          # score >= this -> hot
+  warm_threshold: 45         # score >= this -> warm, below -> cold
+  review_confidence_below: 0.6
+  review_budget_at_or_above: 25000   # big deals always get a human look before the reply goes out
+  # Which tiers may receive an automatic reply without a human approving the draft.
+  auto_send_tiers: [warm, cold, support]
+
+# "Before" baseline: the manual process this pipeline replaces. These numbers are
+# ASSUMPTIONS for the demo business (time-and-motion estimate of one person handling
+# the shared inbox). They are not measured; edit them to match the real process.
+baseline_manual_process:
+  minutes_per_lead:
+    read_and_triage: 3
+    research_company: 4
+    enter_into_crm: 3
+    write_reply: 5
+  median_first_response_minutes: 540     # replies batched twice a day -> ~9h median
+  minutes_per_human_review: 2            # LeadPilot reviews: read summary, approve/edit draft

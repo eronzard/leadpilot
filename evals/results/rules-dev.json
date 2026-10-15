@@ -1,0 +1,1022 @@
+{
+  "meta": {
+    "run_at": "2026-10-15 17:10:56 CEST",
+    "dataset": "dev",
+    "qualifier": "rules",
+    "model": null,
+    "effort": null
+  },
+  "summary": {
+    "cases": 48,
+    "intent_accuracy": 1.0,
+    "tier_accuracy": 1.0,
+    "hot_precision": 1.0,
+    "hot_recall": 1.0,
+    "review_recall": 1.0,
+    "auto_replied_to_non_leads": 0,
+    "sent_to_review": 11,
+    "fallbacks": 0,
+    "latency_p50_s": 0.001,
+    "latency_max_s": 0.005,
+    "cost_usd_total": 0.0,
+    "confusion_tier": {
+      "cold": {
+        "cold": 7
+      },
+      "hot": {
+        "hot": 14
+      },
+      "other": {
+        "other": 10
+      },
+      "spam": {
+        "spam": 4
+      },
+      "support": {
+        "support": 4
+      },
+      "warm": {
+        "warm": 9
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "hot-01",
+      "tags": [
+        "hot",
+        "clear"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.005,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-02",
+      "tags": [
+        "hot",
+        "clear"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-03",
+      "tags": [
+        "hot"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-04",
+      "tags": [
+        "hot",
+        "ecommerce"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-05",
+      "tags": [
+        "hot",
+        "data"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.002,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-06",
+      "tags": [
+        "hot",
+        "crm"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-07",
+      "tags": [
+        "hot",
+        "high_value"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": true,
+      "got_review": true,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [
+        "high-value deal ($60,000)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-08",
+      "tags": [
+        "hot",
+        "terse"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-09",
+      "tags": [
+        "hot",
+        "saas"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-10",
+      "tags": [
+        "hot",
+        "agency"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-11",
+      "tags": [
+        "hot",
+        "free_email"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "hot-12",
+      "tags": [
+        "hot"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-01",
+      "tags": [
+        "warm",
+        "no_budget"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 60,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-02",
+      "tags": [
+        "warm",
+        "vague"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": true,
+      "score": 50,
+      "confidence": 0.57,
+      "review_reasons": [
+        "low confidence (0.57)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-03",
+      "tags": [
+        "warm",
+        "no_timeline"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 70,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-04",
+      "tags": [
+        "warm"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 50,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-05",
+      "tags": [
+        "warm",
+        "later"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 70,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-06",
+      "tags": [
+        "warm"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 55,
+      "confidence": 0.64,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-07",
+      "tags": [
+        "warm",
+        "short"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": true,
+      "score": 55,
+      "confidence": 0.57,
+      "review_reasons": [
+        "low confidence (0.57)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "warm-08",
+      "tags": [
+        "warm"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 60,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-01",
+      "tags": [
+        "cold",
+        "low_budget"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": false,
+      "score": 20,
+      "confidence": 0.64,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-02",
+      "tags": [
+        "cold",
+        "solo",
+        "later"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.78,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-03",
+      "tags": [
+        "cold",
+        "free_work"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": false,
+      "score": 20,
+      "confidence": 0.64,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-04",
+      "tags": [
+        "cold",
+        "low_budget"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": false,
+      "score": 20,
+      "confidence": 0.78,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-05",
+      "tags": [
+        "cold",
+        "vague",
+        "free_email"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": true,
+      "score": 40,
+      "confidence": 0.57,
+      "review_reasons": [
+        "low confidence (0.57)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "cold-06",
+      "tags": [
+        "cold",
+        "disposable"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": null,
+      "got_review": false,
+      "score": 20,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [
+        "disposable_email"
+      ],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "support-01",
+      "tags": [
+        "support"
+      ],
+      "expected_intent": "support_request",
+      "got_intent": "support_request",
+      "expected_tier": "support",
+      "got_tier": "support",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "support-02",
+      "tags": [
+        "support"
+      ],
+      "expected_intent": "support_request",
+      "got_intent": "support_request",
+      "expected_tier": "support",
+      "got_tier": "support",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "support-03",
+      "tags": [
+        "support",
+        "billing"
+      ],
+      "expected_intent": "support_request",
+      "got_intent": "support_request",
+      "expected_tier": "support",
+      "got_tier": "support",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "support-04",
+      "tags": [
+        "support",
+        "spanish"
+      ],
+      "expected_intent": "support_request",
+      "got_intent": "support_request",
+      "expected_tier": "support",
+      "got_tier": "support",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.75,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "spam-01",
+      "tags": [
+        "spam"
+      ],
+      "expected_intent": "spam",
+      "got_intent": "spam",
+      "expected_tier": "spam",
+      "got_tier": "spam",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "spam-02",
+      "tags": [
+        "spam",
+        "seo"
+      ],
+      "expected_intent": "spam",
+      "got_intent": "spam",
+      "expected_tier": "spam",
+      "got_tier": "spam",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "spam-03",
+      "tags": [
+        "spam"
+      ],
+      "expected_intent": "spam",
+      "got_intent": "spam",
+      "expected_tier": "spam",
+      "got_tier": "spam",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "spam-04",
+      "tags": [
+        "spam",
+        "phishing"
+      ],
+      "expected_intent": "spam",
+      "got_intent": "spam",
+      "expected_tier": "spam",
+      "got_tier": "spam",
+      "expected_review": null,
+      "got_review": true,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [
+        "red flags: possible_phishing"
+      ],
+      "red_flags": [
+        "possible_phishing"
+      ],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "vendor-01",
+      "tags": [
+        "vendor",
+        "looks_like_sales"
+      ],
+      "expected_intent": "vendor_pitch",
+      "got_intent": "vendor_pitch",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "vendor-02",
+      "tags": [
+        "vendor"
+      ],
+      "expected_intent": "vendor_pitch",
+      "got_intent": "vendor_pitch",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "vendor-03",
+      "tags": [
+        "vendor",
+        "looks_like_sales"
+      ],
+      "expected_intent": "vendor_pitch",
+      "got_intent": "vendor_pitch",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "job-01",
+      "tags": [
+        "job"
+      ],
+      "expected_intent": "job_application",
+      "got_intent": "job_application",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "job-02",
+      "tags": [
+        "job",
+        "looks_like_sales"
+      ],
+      "expected_intent": "job_application",
+      "got_intent": "job_application",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "job-03",
+      "tags": [
+        "job"
+      ],
+      "expected_intent": "job_application",
+      "got_intent": "job_application",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": false,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "partner-01",
+      "tags": [
+        "partnership"
+      ],
+      "expected_intent": "partnership",
+      "got_intent": "partnership",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": true,
+      "got_review": true,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [
+        "partnership request needs an owner decision"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "partner-02",
+      "tags": [
+        "partnership"
+      ],
+      "expected_intent": "partnership",
+      "got_intent": "partnership",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": true,
+      "got_review": true,
+      "score": 0,
+      "confidence": 0.9,
+      "review_reasons": [
+        "partnership request needs an owner decision"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "inject-01",
+      "tags": [
+        "prompt_injection",
+        "hot"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": true,
+      "got_review": true,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [
+        "red flags: prompt_injection_attempt"
+      ],
+      "red_flags": [
+        "prompt_injection_attempt"
+      ],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "inject-02",
+      "tags": [
+        "prompt_injection",
+        "cold"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "cold",
+      "got_tier": "cold",
+      "expected_review": true,
+      "got_review": true,
+      "score": 20,
+      "confidence": 0.64,
+      "review_reasons": [
+        "red flags: prompt_injection_attempt"
+      ],
+      "red_flags": [
+        "prompt_injection_attempt"
+      ],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "es-01",
+      "tags": [
+        "spanish",
+        "hot"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "hot",
+      "got_tier": "hot",
+      "expected_review": null,
+      "got_review": false,
+      "score": 100,
+      "confidence": 0.85,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "fr-01",
+      "tags": [
+        "french",
+        "warm"
+      ],
+      "expected_intent": "sales_inquiry",
+      "got_intent": "sales_inquiry",
+      "expected_tier": "warm",
+      "got_tier": "warm",
+      "expected_review": null,
+      "got_review": false,
+      "score": 65,
+      "confidence": 0.71,
+      "review_reasons": [],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "other-01",
+      "tags": [
+        "other"
+      ],
+      "expected_intent": "other",
+      "got_intent": "other",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": true,
+      "score": 0,
+      "confidence": 0.3,
+      "review_reasons": [
+        "low confidence (0.30)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "other-02",
+      "tags": [
+        "other",
+        "student"
+      ],
+      "expected_intent": "other",
+      "got_intent": "other",
+      "expected_tier": "other",
+      "got_tier": "other",
+      "expected_review": null,
+      "got_review": true,
+      "score": 0,
+      "confidence": 0.3,
+      "review_reasons": [
+        "low confidence (0.30)"
+      ],
+      "red_flags": [],
+      "fallback_reason": null,
+      "latency_s": 0.001,
+      "cost_usd": 0.0
+    }
+  ]
+}

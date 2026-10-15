@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Unit + integration tests (includes the eval quality gate)
+        run: pytest -v
+      - name: Eval report (rules engine, dev + holdout)
+        run: |
+          python -m evals.run_eval --qualifier rules --dataset dev
+          python -m evals.run_eval --qualifier rules --dataset holdout
+      - name: End-to-end demo with 30% injected CRM failures
+        run: python scripts/demo.py --chaos 0.3
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t leadpilot .
+      - name: Smoke test the container
+        run: |
+          docker run -d -p 7860:7860 --name lp leadpilot
+          for i in $(seq 1 30); do curl -sf localhost:7860/healthz && break; sleep 1; done
+          curl -sf -X POST localhost:7860/webhooks/lead -H 'content-type: application/json' \
+            -d '{"email":"ci@acme.example","message":"We need a Zapier workflow, budget $5k, start next week"}'
+          sleep 3
+          curl -sf localhost:7860/api/leads | grep -q '"status":"done"\|"status":"needs_review"'

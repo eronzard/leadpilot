@@ -1,0 +1,152 @@
+{
+  "name": "LeadPilot - Gmail + Typeform intake",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "simple": false,
+        "filters": { "labelIds": ["INBOX"], "q": "to:hello@northwind.example -from:me" },
+        "options": {}
+      },
+      "id": "a1f0c1d2-0001-4c1e-9a10-000000000001",
+      "name": "Gmail: new inquiry",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "f1", "name": "email", "value": "={{ $json.from.value[0].address }}", "type": "string" },
+            { "id": "f2", "name": "name", "value": "={{ $json.from.value[0].name }}", "type": "string" },
+            { "id": "f3", "name": "message", "value": "={{ ($json.subject ? $json.subject + '\\n\\n' : '') + ($json.text || '') }}", "type": "string" },
+            { "id": "f4", "name": "source", "value": "email", "type": "string" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1f0c1d2-0002-4c1e-9a10-000000000002",
+      "name": "Map email to lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform-lead",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "a1f0c1d2-0003-4c1e-9a10-000000000003",
+      "name": "Typeform webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 220],
+      "webhookId": "5b1d2c7e-1f53-4a51-8d8e-leadpilot001"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "t1", "name": "email", "value": "={{ $json.body.form_response.answers.find(a => a.type === 'email').email }}", "type": "string" },
+            { "id": "t2", "name": "name", "value": "={{ ($json.body.form_response.answers.find(a => a.field.ref === 'name') || {}).text || '' }}", "type": "string" },
+            { "id": "t3", "name": "company", "value": "={{ ($json.body.form_response.answers.find(a => a.field.ref === 'company') || {}).text || '' }}", "type": "string" },
+            { "id": "t4", "name": "message", "value": "={{ ($json.body.form_response.answers.find(a => a.field.ref === 'message') || {}).text || '' }}", "type": "string" },
+            { "id": "t5", "name": "source", "value": "typeform", "type": "string" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1f0c1d2-0004-4c1e-9a10-000000000004",
+      "name": "Map Typeform to lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 220]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Sign the exact body LeadPilot will receive (HMAC-SHA256, header X-LeadPilot-Signature).\nconst crypto = require('crypto');\nconst secret = $env.LEADPILOT_WEBHOOK_SECRET;\nreturn $input.all().map(item => {\n  const body = JSON.stringify({\n    email: item.json.email, name: item.json.name || '', company: item.json.company || '',\n    message: item.json.message || '', source: item.json.source,\n  });\n  const signature = 'sha256=' + crypto.createHmac('sha256', secret).update(body).digest('hex');\n  return { json: { body, signature } };\n});"
+      },
+      "id": "a1f0c1d2-0005-4c1e-9a10-000000000005",
+      "name": "Sign payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.LEADPILOT_URL }}/webhooks/lead",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "X-LeadPilot-Signature", "value": "={{ $json.signature }}" }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json.body }}",
+        "options": {
+          "response": { "response": { "neverError": true, "fullResponse": true } },
+          "timeout": 10000
+        }
+      },
+      "id": "a1f0c1d2-0006-4c1e-9a10-000000000006",
+      "name": "POST to LeadPilot",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 100],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            { "id": "c1", "leftValue": "={{ $json.statusCode }}", "rightValue": 300, "operator": { "type": "number", "operation": "lt" } }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1f0c1d2-0007-4c1e-9a10-000000000007",
+      "name": "Accepted?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SLACK_WEBHOOK_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: ':rotating_light: LeadPilot rejected an inbound lead (HTTP ' + $json.statusCode + '): ' + JSON.stringify($json.body).slice(0, 300) }) }}",
+        "options": {}
+      },
+      "id": "a1f0c1d2-0008-4c1e-9a10-000000000008",
+      "name": "Alert #ops-alerts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1200, 200]
+    }
+  ],
+  "connections": {
+    "Gmail: new inquiry": { "main": [[{ "node": "Map email to lead", "type": "main", "index": 0 }]] },
+    "Typeform webhook": { "main": [[{ "node": "Map Typeform to lead", "type": "main", "index": 0 }]] },
+    "Map email to lead": { "main": [[{ "node": "Sign payload", "type": "main", "index": 0 }]] },
+    "Map Typeform to lead": { "main": [[{ "node": "Sign payload", "type": "main", "index": 0 }]] },
+    "Sign payload": { "main": [[{ "node": "POST to LeadPilot", "type": "main", "index": 0 }]] },
+    "POST to LeadPilot": { "main": [[{ "node": "Accepted?", "type": "main", "index": 0 }]] },
+    "Accepted?": { "main": [[], [{ "node": "Alert #ops-alerts", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": { "templateCredsSetupCompleted": false }
+}
